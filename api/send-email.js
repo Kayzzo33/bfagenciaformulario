@@ -25,16 +25,68 @@ export default async function handler(req, res) {
   }
 
   const emailBody = `
-    <h2 style="color:#111;">Novo Lead Capturado — BF Agência</h2>
-    <table style="border-collapse:collapse;width:100%;font-family:sans-serif;">
-      <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Nome/Cargo</td><td style="padding:8px;border:1px solid #ddd;">${leadsData.nome_cargo || 'N/A'}</td></tr>
-      <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Empresa/Site</td><td style="padding:8px;border:1px solid #ddd;">${leadsData.empresa_site || 'N/A'}</td></tr>
-      <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Segmento</td><td style="padding:8px;border:1px solid #ddd;">${leadsData.segmento_atuacao || 'N/A'}</td></tr>
-      <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Faturamento</td><td style="padding:8px;border:1px solid #ddd;">${leadsData.faturamento_mensal || 'N/A'}</td></tr>
-      <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Status Investimento</td><td style="padding:8px;border:1px solid #ddd;">${leadsData.investimento_status || 'N/A'}</td></tr>
-      <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Valor Investimento</td><td style="padding:8px;border:1px solid #ddd;">${leadsData.investimento_valor_mensal || 'N/A'}</td></tr>
-      <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Objetivo</td><td style="padding:8px;border:1px solid #ddd;">${leadsData.objetivo_principal || 'N/A'}</td></tr>
-    </table>
+    <div style="background-color: #000000; padding: 40px 20px; font-family: sans-serif; color: #ffffff;">
+      <div style="max-width: 600px; margin: 0 auto; background-color: #111111; border: 1px solid #333; border-radius: 12px; overflow: hidden;">
+        <div style="background-color: #f5c317; padding: 25px; text-align: center;">
+          <h1 style="margin: 0; color: #000; font-size: 20px; text-transform: uppercase; letter-spacing: 2px; font-weight: 900;">Novo Lead Capturado</h1>
+        </div>
+        <div style="padding: 35px 25px;">
+          <p style="color: #a3a3a3; font-size: 15px; margin-bottom: 25px; text-align: center;">Um novo lead acaba de completar o formulário da <strong>BF Agência</strong>.</p>
+          
+          <table style="width: 100%; border-collapse: collapse;">
+            <tr>
+              <td style="padding: 15px 0; border-bottom: 1px solid #222;">
+                <span style="color: #f5c317; font-size: 11px; font-weight: bold; text-transform: uppercase; display: block; margin-bottom: 4px;">Nome e Cargo</span>
+                <span style="color: #fff; font-size: 17px; font-weight: 500;">${leadsData.nome_cargo || 'N/A'}</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 15px 0; border-bottom: 1px solid #222;">
+                <span style="color: #f5c317; font-size: 11px; font-weight: bold; text-transform: uppercase; display: block; margin-bottom: 4px;">Empresa / Site</span>
+                <span style="color: #fff; font-size: 17px; font-weight: 500;">${leadsData.empresa_site || 'N/A'}</span>
+              </td>
+            </tr>
+          </table>
+
+          <table style="width: 100%; border-collapse: collapse;">
+            <tr>
+              <td style="padding: 15px 0; border-bottom: 1px solid #222; width: 50%;">
+                <span style="color: #f5c317; font-size: 11px; font-weight: bold; text-transform: uppercase; display: block; margin-bottom: 4px;">Segmento</span>
+                <span style="color: #fff; font-size: 15px;">${leadsData.segmento_atuacao || 'N/A'}</span>
+              </td>
+              <td style="padding: 15px 0; border-bottom: 1px solid #222; width: 50%;">
+                <span style="color: #f5c317; font-size: 11px; font-weight: bold; text-transform: uppercase; display: block; margin-bottom: 4px;">Faturamento</span>
+                <span style="color: #fff; font-size: 15px;">${leadsData.faturamento_mensal || 'N/A'}</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 15px 0; border-bottom: 1px solid #222; width: 50%;">
+                <span style="color: #f5c317; font-size: 11px; font-weight: bold; text-transform: uppercase; display: block; margin-bottom: 4px;">Status Inv.</span>
+                <span style="color: #fff; font-size: 15px;">${leadsData.investimento_status || 'N/A'}</span>
+              </td>
+              <td style="padding: 15px 0; border-bottom: 1px solid #222; width: 50%;">
+                <span style="color: #f5c317; font-size: 11px; font-weight: bold; text-transform: uppercase; display: block; margin-bottom: 4px;">Valor Inv.</span>
+                <span style="color: #fff; font-size: 15px;">${leadsData.investimento_valor_mensal || 'N/A'}</span>
+              </td>
+            </tr>
+          </table>
+
+          <div style="padding: 20px 0; border-bottom: 1px solid #222;">
+            <span style="color: #f5c317; font-size: 11px; font-weight: bold; text-transform: uppercase; display: block; margin-bottom: 4px;">Objetivo Principal</span>
+            <span style="color: #fff; font-size: 15px; font-style: italic;">"${leadsData.objetivo_principal || 'N/A'}"</span>
+          </div>
+
+          <div style="padding: 20px 0;">
+            <span style="color: #f5c317; font-size: 11px; font-weight: bold; text-transform: uppercase; display: block; margin-bottom: 4px;">Quer investir nos próximos 6 meses?</span>
+            <span style="color: #fff; font-size: 15px;">${leadsData.decisao_investimento_6meses || 'N/A'}</span>
+          </div>
+
+          <div style="text-align: center; margin-top: 40px;">
+            <p style="color: #444; font-size: 11px; margin: 0;">© 2024 BF Agência. Sistema de Captura Automatizado.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   `;
 
   try {

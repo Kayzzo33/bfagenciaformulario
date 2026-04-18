@@ -169,9 +169,22 @@ function App() {
 
   const handleWhatsAppRedirect = () => {
     const phone = '5573998170445';
-    const text = Object.entries(responses)
-      .map(([key, value]) => `*${key}:* ${value}`)
-      .join('\n');
+    
+    const text = `🚀 *NOVO LEAD CAPTURADO - BF AGÊNCIA*
+
+👤 *NOME/CARGO:* ${responses.nome_cargo || 'N/A'}
+🏢 *EMPRESA/SITE:* ${responses.empresa_site || 'N/A'}
+🎯 *SEGMENTO:* ${responses.segmento_atuacao || 'N/A'}
+💰 *FATURAMENTO:* ${responses.faturamento_mensal || 'N/A'}
+
+📊 *STATUS INVESTIMENTO:* ${responses.investimento_status || 'N/A'}
+💸 *VALOR INVESTIDO:* ${responses.investimento_valor_mensal || 'N/A'}
+🔥 *OBJETIVO:* ${responses.objetivo_principal || 'N/A'}
+
+✅ *QUER INVESTIR NOS PRÓXIMOS 6 MESES?* ${responses.decisao_investimento_6meses || 'N/A'}
+
+---
+_Enviado através do formulário BF Agência_`;
     
     const appUrl = `whatsapp://send?phone=${phone}&text=${encodeURIComponent(text)}`;
     const webUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(text)}`;
