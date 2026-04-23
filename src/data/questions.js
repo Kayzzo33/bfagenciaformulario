@@ -148,7 +148,7 @@ export const questions = [
     type: 'text',
     messages: [
       'Excelente! Você está no caminho certo para escalar suas vendas.',
-      'Clique no botão abaixo para concluir o envio e ser redirecionado para a nossa página oficial.'
+      'Clique no botão abaixo para concluir o envio via WhatsApp e falar com um consultor.'
     ],
     next: null
   },

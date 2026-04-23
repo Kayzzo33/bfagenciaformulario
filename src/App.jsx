@@ -167,9 +167,40 @@ function App() {
     setMultiSelect([]);
   };
 
-  const handleFinalRedirect = () => {
-    const targetUrl = 'https://bfagenciaformulario.vercel.app/';
-    window.location.href = targetUrl;
+  const handleWhatsAppRedirect = () => {
+    const phone = '5573998170445';
+    
+    const text = `🚀 *NOVO LEAD CAPTURADO - BF AGÊNCIA*
+
+👤 *NOME/CARGO:* ${responses.nome_cargo || 'N/A'}
+🏢 *EMPRESA:* ${responses.nome_empresa || 'N/A'}
+🌐 *SITE/REDE SOCIAL:* ${responses.site_rede_social || 'N/A'}
+📧 *EMAIL:* ${responses.email || 'N/A'}
+📱 *WHATSAPP:* ${responses.telefone || 'N/A'}
+🎯 *SEGMENTO:* ${responses.segmento_atuacao || 'N/A'}
+💰 *FATURAMENTO:* ${responses.faturamento_mensal || 'N/A'}
+
+📊 *STATUS INVESTIMENTO:* ${responses.investimento_status || 'N/A'}
+💸 *VALOR INVESTIDO:* ${responses.investimento_valor_mensal || 'N/A'}
+🔥 *OBJETIVO:* ${responses.objetivo_principal || 'N/A'}
+
+✅ *QUER INVESTIR NOS PRÓXIMOS 6 MESES?* ${responses.decisao_investimento_6meses || 'N/A'}
+
+---
+_Enviado através do formulário BF Agência_`;
+    
+    const appUrl = `whatsapp://send?phone=${phone}&text=${encodeURIComponent(text)}`;
+    const webUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(text)}`;
+
+    // Tenta abrir o App Desktop diretamente
+    window.location.href = appUrl;
+
+    // Fallback: Se o App não abrir em 1.5s (o browser continua com foco), abre a página web
+    setTimeout(() => {
+      if (document.hasFocus()) {
+        window.open(webUrl, '_blank');
+      }
+    }, 1500);
   };
 
   const handleSubmit = async () => {
@@ -192,10 +223,10 @@ function App() {
       }
 
       // 3. Redirect
-      handleFinalRedirect();
+      handleWhatsAppRedirect();
     } catch (error) {
       console.error('Erro na submissão:', error);
-      handleFinalRedirect();
+      handleWhatsAppRedirect();
     } finally {
       setIsSubmitting(false);
     }
@@ -308,8 +339,8 @@ function App() {
                   cursor: 'pointer'
                 }}
               >
-                {isSubmitting ? 'ENVIANDO...' : 'CONCLUIR E ACESSAR FORMULÁRIO'}
-                {!isSubmitting && <LucideIcons.ExternalLink size={22} style={{ marginLeft: '12px' }} />}
+                {isSubmitting ? 'ENVIANDO...' : 'CONFIRMAR E FALAR COM UM CONSULTOR'}
+                {!isSubmitting && <LucideIcons.MessageCircle size={22} style={{ marginLeft: '12px' }} />}
                 {isSubmitting && <LucideIcons.Loader2 size={22} className="animate-spin" style={{ marginLeft: '12px' }} />}
               </button>
             </motion.div>
