@@ -175,8 +175,7 @@ function App() {
 👤 *NOME/CARGO:* ${responses.nome_cargo || 'N/A'}
 🏢 *EMPRESA:* ${responses.nome_empresa || 'N/A'}
 🌐 *SITE/REDE SOCIAL:* ${responses.site_rede_social || 'N/A'}
-📧 *EMAIL:* ${responses.email || 'N/A'}
-📱 *WHATSAPP:* ${responses.telefone || 'N/A'}
+📧/📱 *CONTATO:* ${responses.email_telefone || 'N/A'}
 🎯 *SEGMENTO:* ${responses.segmento_atuacao || 'N/A'}
 💰 *FATURAMENTO:* ${responses.faturamento_mensal || 'N/A'}
 

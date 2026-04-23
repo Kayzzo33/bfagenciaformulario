@@ -44,24 +44,15 @@ export const questions = [
     placeholder: 'https://suaempresa.com.br',
     messages: ['Qual o link do site ou rede social?'],
     field: 'site_rede_social',
-    next: 'contato_email'
+    next: 'contato_dados'
   },
   {
-    id: 'contato_email',
+    id: 'contato_dados',
     type: 'input',
-    label: 'Seu melhor e-mail',
-    placeholder: 'contato@empresa.com.br',
-    messages: ['Qual o seu melhor e-mail?'],
-    field: 'email',
-    next: 'contato_telefone'
-  },
-  {
-    id: 'contato_telefone',
-    type: 'input',
-    label: 'Seu número de WhatsApp',
-    placeholder: '(00) 00000-0000',
-    messages: ['Qual o seu número de WhatsApp?'],
-    field: 'telefone',
+    label: 'E-mail e WhatsApp',
+    placeholder: 'seu@email.com - (00) 00000-0000',
+    messages: ['Qual o seu melhor e-mail e número para contato?'],
+    field: 'email_telefone',
     next: 'segmento'
   },
   {
@@ -162,5 +153,4 @@ export const questions = [
     ],
     next: null
   }
-];
 ];
