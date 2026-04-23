@@ -42,8 +42,26 @@ export default async function handler(req, res) {
             </tr>
             <tr>
               <td style="padding: 15px 0; border-bottom: 1px solid #222;">
-                <span style="color: #f5c317; font-size: 11px; font-weight: bold; text-transform: uppercase; display: block; margin-bottom: 4px;">Empresa / Site</span>
-                <span style="color: #fff; font-size: 17px; font-weight: 500;">${leadsData.empresa_site || 'N/A'}</span>
+                <span style="color: #f5c317; font-size: 11px; font-weight: bold; text-transform: uppercase; display: block; margin-bottom: 4px;">Empresa</span>
+                <span style="color: #fff; font-size: 17px; font-weight: 500;">${leadsData.nome_empresa || 'N/A'}</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 15px 0; border-bottom: 1px solid #222;">
+                <span style="color: #f5c317; font-size: 11px; font-weight: bold; text-transform: uppercase; display: block; margin-bottom: 4px;">Site / Rede Social</span>
+                <span style="color: #fff; font-size: 17px; font-weight: 500;">${leadsData.site_rede_social || 'N/A'}</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 15px 0; border-bottom: 1px solid #222;">
+                <span style="color: #f5c317; font-size: 11px; font-weight: bold; text-transform: uppercase; display: block; margin-bottom: 4px;">E-mail</span>
+                <span style="color: #fff; font-size: 17px; font-weight: 500;">${leadsData.email || 'N/A'}</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 15px 0; border-bottom: 1px solid #222;">
+                <span style="color: #f5c317; font-size: 11px; font-weight: bold; text-transform: uppercase; display: block; margin-bottom: 4px;">Telefone</span>
+                <span style="color: #fff; font-size: 17px; font-weight: 500;">${leadsData.telefone || 'N/A'}</span>
               </td>
             </tr>
           </table>
@@ -99,7 +117,7 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         from: fromEmail,
         to: toEmail,
-        subject: `Novo Lead: ${leadsData.nome_cargo || '?'} — ${leadsData.empresa_site || '?'}`,
+        subject: `Novo Lead: ${leadsData.nome_cargo || '?'} — ${leadsData.nome_empresa || '?'}`,
         html: emailBody,
       }),
     });

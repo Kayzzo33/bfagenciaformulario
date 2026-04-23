@@ -31,15 +31,42 @@ export const questions = [
   {
     id: 'identificacao_empresa',
     type: 'input',
-    label: 'Nome da empresa e site',
+    label: 'Nome da empresa',
+    placeholder: 'Nome da sua empresa',
+    messages: ['Qual o nome da sua empresa?'],
+    field: 'nome_empresa',
+    next: 'identificacao_site'
+  },
+  {
+    id: 'identificacao_site',
+    type: 'input',
+    label: 'Link do site ou rede social',
     placeholder: 'https://suaempresa.com.br',
-    messages: ['Qual o nome da sua empresa e o link do site ou rede social?'],
-    field: 'empresa_site',
+    messages: ['Qual o link do site ou rede social?'],
+    field: 'site_rede_social',
+    next: 'contato_email'
+  },
+  {
+    id: 'contato_email',
+    type: 'input',
+    label: 'Seu melhor e-mail',
+    placeholder: 'contato@empresa.com.br',
+    messages: ['Qual o seu melhor e-mail?'],
+    field: 'email',
+    next: 'contato_telefone'
+  },
+  {
+    id: 'contato_telefone',
+    type: 'input',
+    label: 'Seu número de WhatsApp',
+    placeholder: '(00) 00000-0000',
+    messages: ['Qual o seu número de WhatsApp?'],
+    field: 'telefone',
     next: 'segmento'
   },
   {
     id: 'segmento',
-    type: 'input', // Changed from options to input as requested
+    type: 'input',
     label: 'Segmento de atuação',
     placeholder: 'Ex: E-commerce, Saúde, Imobiliário...',
     messages: ['Em qual segmento vocês atuam?'],
@@ -72,7 +99,7 @@ export const questions = [
       { label: 'Nunca investi', value: 'nunca_investi', icon: 'XCircle' }
     ],
     field: 'investimento_status',
-    next: 'investimento_valor' // Logic in App.jsx can skip this if "nunca"
+    next: 'investimento_valor'
   },
   {
     id: 'investimento_valor',
@@ -91,7 +118,7 @@ export const questions = [
   },
   {
     id: 'objetivo_foco',
-    type: 'input', // Changed from options to input as requested
+    type: 'input',
     label: 'Maior foco agora',
     placeholder: 'Ex: Gerar mais leads qualificados, aumentar vendas...',
     messages: ['Qual é o seu maior foco com tráfego pago agora?'],
@@ -114,14 +141,14 @@ export const questions = [
       { label: 'Não, não é um momento', value: 'nao', icon: 'Clock' }
     ],
     field: 'decisao_investimento_6meses',
-    next: null // Lógica de ramificação no App.jsx
+    next: null
   },
   {
     id: 'conclusao_sim',
     type: 'text',
     messages: [
       'Excelente! Você está no caminho certo para escalar suas vendas.',
-      'Clique no botão abaixo para concluir o envio via WhatsApp e falar com um consultor.'
+      'Clique no botão abaixo para concluir o envio e ser redirecionado para a nossa página oficial.'
     ],
     next: null
   },
@@ -131,9 +158,9 @@ export const questions = [
     messages: [
       'Entendido!',
       'Obrigado pelo seu tempo.',
-      'Caso tenha condições no futuro ficaremos felizes em receber-te.',
-      'Clique no botão abaixo para concluir o envio via WhatsApp e falar com um consultor.'
+      'Caso tenha condições no futuro ficaremos felizes em receber-te.'
     ],
     next: null
   }
+];
 ];
